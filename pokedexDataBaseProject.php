@@ -15,32 +15,37 @@ $result = $query->fetchAll();
 
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+        <link href="normalize.css" type="text/css" rel="stylesheet">
+        <link href="pokedexStyle.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-    <header class="tile">
-        Pokedex
-    </header>
+        <header class="title">
+            Pokedex
+        </header>
 
-    <a href="http://localhost:1234/databaseProject/pokedexForm.php"><button class="addNewPokemonButton">Add new Pokemon</button></a>
+        <a href="http://localhost:1234/databaseProject/pokedexForm.php" class="addNewPokemonButtonBorder"><button class="addNewPokemonButton">Add new Pokemon</button></a>
 
-    <table class="mainTable">
-        <tr>
-            <th>Pokedex Entry</th>
-            <th>Name</th>
-            <th>Type</th>
-        </tr>
+        <table class="mainTable">
+            <tr>
+                <th class="pokemonFont">Pokedex Entry</th>
+                <th class="pokemonFont">Name</th>
+                <th class="pokemonFont">Type</th>
+            </tr>
 
-    <?php
-        foreach($result as $pokemon) {
-            echo "<tr>";
-            echo "<td>" . $pokemon['pokedex_no'] . "</td>";
-            echo "<td>" . $pokemon['name'] . "</td>";
-            echo "<td>" . $pokemon['type'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+        <?php
+            foreach($result as $pokemon) {
+                echo "<tr>";
+                echo "<td>" . $pokemon['pokedex_no'] . "</td>";
+                echo "<td>" . $pokemon['name'] . "</td>";
+                echo "<td>" . $pokemon['type'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
-    ?>
+        ?>
 
 
 
