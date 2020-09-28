@@ -21,7 +21,7 @@ $result = $query->fetchAll();
         Pokedex
     </header>
 
-    <button class="addNewPokemonButton" href="">Add new Pokemon</button>
+    <a href="http://localhost:1234/databaseProject/pokedexForm.php"><button class="addNewPokemonButton">Add new Pokemon</button></a>
 
     <table class="mainTable">
         <tr>
