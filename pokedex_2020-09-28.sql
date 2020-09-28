@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: pokedex
-# Generation Time: 2020-09-28 10:48:58 +0000
+# Generation Time: 2020-09-28 10:57:13 +0000
 # ************************************************************
 
 
@@ -28,8 +28,8 @@ DROP TABLE IF EXISTS `kanto_pokedex`;
 CREATE TABLE `kanto_pokedex` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pokedex_no` int(11) DEFAULT NULL,
-  `name` char(255) DEFAULT NULL,
-  `type` char(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
