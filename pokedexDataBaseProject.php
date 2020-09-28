@@ -1,4 +1,5 @@
 <?php
+//pokedex Code
 
 $db = new PDO('mysql:host=db;dbname=pokedex', 'root', 'password');
 
