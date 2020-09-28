@@ -11,8 +11,38 @@ $query->execute();
 
 $result = $query->fetchAll();
 
-echo '<ul>';
-foreach($result as $kantoPokedex) {
-    echo '<li>' . '#' . $kantoPokedex['pokedex_no'] . ' ' . $kantoPokedex['name'] . ' ' . $kantoPokedex['type'] . '</li>';
-}
-echo '</ul>';
+?>
+
+<html>
+    <head>
+    </head>
+    <body>
+    <header class="tile">
+        Pokedex
+    </header>
+
+    <button class="addNewPokemonButton" href="">Add new Pokemon</button>
+
+    <table class="mainTable">
+        <tr>
+            <th>Pokedex Entry</th>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+
+    <?php
+        foreach($result as $pokemon) {
+            echo "<tr>";
+            echo "<td>" . $pokemon['pokedex_no'] . "</td>";
+            echo "<td>" . $pokemon['name'] . "</td>";
+            echo "<td>" . $pokemon['type'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+
+    ?>
+
+
+
+    </body>
+</html>
