@@ -20,14 +20,14 @@ $pokemons = getData();
             Pokedex
         </header>
 
-        <a href="http://localhost:1234/databaseProject/pokedexForm.php" class="addNewPokemonButtonBorder"><button class="addNewPokemonButton">Add new Pokemon</button></a>
+        <a href="pokedexForm.php" class="addNewPokemonButtonBorder"><button class="addNewPokemonButton">Add new Pokemon</button></a>
 
         <table class="mainTable pokemonFont">
             <tr class="rowBox">
-                <th class="pokemonFont">Image</th>
-                <th class="pokemonFont">Pokedex Entry</th>
-                <th class="pokemonFont">Name</th>
-                <th class="pokemonFont">Type</th>
+                <th>Image</th>
+                <th>Pokedex Entry</th>
+                <th>Name</th>
+                <th>Type</th>
             </tr>
 
         <?php
