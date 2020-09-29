@@ -3,7 +3,9 @@
 
 require('functions.php');
 
-$pokemons = getData();
+$db = getDatabaseObject();
+
+$pokemons = getPokemons($db);
 
 ?>
 
@@ -29,21 +31,8 @@ $pokemons = getData();
                 <th>Name</th>
                 <th>Type</th>
             </tr>
-
-        <?php
-            foreach($pokemons as $pokemon) {
-                echo "<tr class='rowBox'>";
-                echo "<td> <img src=" . $pokemon['img_source'] . " alt=Picture of" . $pokemon['name'] . " class='pictureOfPokemon'> </td>";
-                echo "<td>" . $pokemon['pokedex_no'] . "</td>";
-                echo "<td>" . $pokemon['name'] . "</td>";
-                echo "<td>" . $pokemon['type'] . "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-
-        ?>
-
-
+                <?php echo displayPokemon($pokemons) ?>
+        </table>
 
     </body>
 </html>
