@@ -1,15 +1,9 @@
 <?php
 //pokedex Code
 
-$db = new PDO('mysql:host=db;dbname=pokedex', 'root', 'password');
+require('functions.php');
 
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-$query = $db->prepare('SELECT `id`, `pokedex_no`, `name`, `type`, `img_source` FROM `kanto_pokedex`;');
-
-$query->execute();
-
-$result = $query->fetchAll();
+$pokemons = getData();
 
 ?>
 
@@ -21,18 +15,15 @@ $result = $query->fetchAll();
         <link href="normalize.css" type="text/css" rel="stylesheet">
         <link href="pokedexStyle.css" type="text/css" rel="stylesheet">
     </head>
-    <body>
+    <body class="backgroundImage">
         <header class="title">
             Pokedex
         </header>
 
-        <div class="backgroundImage">
-        </div>
-
         <a href="http://localhost:1234/databaseProject/pokedexForm.php" class="addNewPokemonButtonBorder"><button class="addNewPokemonButton">Add new Pokemon</button></a>
 
-        <table class="mainTable">
-            <tr>
+        <table class="mainTable pokemonFont">
+            <tr class="rowBox">
                 <th class="pokemonFont">Image</th>
                 <th class="pokemonFont">Pokedex Entry</th>
                 <th class="pokemonFont">Name</th>
@@ -40,9 +31,9 @@ $result = $query->fetchAll();
             </tr>
 
         <?php
-            foreach($result as $pokemon) {
-                echo "<tr>";
-                echo "<td> <img src=" . $pokemon['img_source'] . "alt=Picture of " . $pokemon['name'] . " class='pictureOfPokemon'> </td>";
+            foreach($pokemons as $pokemon) {
+                echo "<tr class='rowBox'>";
+                echo "<td> <img src=" . $pokemon['img_source'] . " alt=Picture of" . $pokemon['name'] . " class='pictureOfPokemon'> </td>";
                 echo "<td>" . $pokemon['pokedex_no'] . "</td>";
                 echo "<td>" . $pokemon['name'] . "</td>";
                 echo "<td>" . $pokemon['type'] . "</td>";
