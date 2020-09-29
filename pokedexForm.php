@@ -2,9 +2,9 @@
     <body>
         <header>Add a new Pokemon</header>
 
-        <a href="http://localhost:1234/databaseProject/pokedexDataBaseProject.php"><button class="backToPokedexButton">Back to Pokedex</button></a>
+        <a href="pokedexDataBaseProject.php"><button class="backToPokedexButton">Back to Pokedex</button></a>
 
-        <form method="post" action="insert.php">
+        <form method="post" action="insertPokemon.php">
             Pokedex Entry #:
             <input type="number" name="addPokedexNo" required="">
             <br>
