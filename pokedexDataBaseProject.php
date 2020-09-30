@@ -18,7 +18,7 @@ $pokemons = getPokemons($db);
         <link href="pokedexStyle.css" type="text/css" rel="stylesheet">
     </head>
     <body class="backgroundImage">
-        <header class="title">
+        <header class="title pokemonFont">
             Pokedex
         </header>
 

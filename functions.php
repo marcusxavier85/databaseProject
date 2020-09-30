@@ -32,23 +32,23 @@ function getPokemons(PDO $db): array {
 /**
  * Displays data gathered in the table pn the browser
  *
- * @param $pokemonArray, associative array, used as the base to grab the data from
+ * @param $pokemons, nested associative array, used as the base to grab the data from
  *
- * @return string, returning a concatination of all data in one array and then doing it again for the others
+ * @return string, returning a concatination of all data in one array and then doing it again for the other nested arrays
  */
-function displayPokemon(array $pokemonArray): string {
-    if (in_array(, $pokemonArray)) {
-        $result = '';
-        foreach ($pokemonArray as $pokemon) {
+function displayPokemon(array $pokemons): string {
+    $result = '';
+    foreach ($pokemons as $pokemon) {
+        if (array_key_exists('img_source', $pokemon) && array_key_exists('pokedex_no', $pokemon) && array_key_exists('name', $pokemon) && array_key_exists('type', $pokemon)) {
             $result .= '<tr class="rowBox">';
             $result .= '<td><img class="pictureOfPokemon" src=' . $pokemon['img_source'] . ' alt="Picture of "' . $pokemon['name'] . '</td>';
             $result .= '<td>' . $pokemon['pokedex_no'] . '</td>';
             $result .= '<td>' . $pokemon['name'] . '</td>';
             $result .= '<td>' . $pokemon['type'] . '</td>';
             $result .= '</tr>';
+        } else {
+            return 'This is not correct please reconsider';
         }
-        return $result;
-    } else {
-        return 'This is not correct please reconsider';
     }
+    return $result;
 }
