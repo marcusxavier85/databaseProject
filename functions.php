@@ -58,20 +58,20 @@ function displayPokemon(array $pokemons): string {
     return $result;
 }
 
-
+/**
+ * Adds data to the database
+ *
+ * @param none
+ *
+ * @return array, when returned the data will be sent to the database
+ */
 function addPokemonToDatabase() {
-
     $dataBase = getDatabaseObject();
-
     $pokedexNumber = $_POST['addPokedexNo'];
     $pokemonName = $_POST['addPokemonName'];
     $pokemonType = $_POST['addPokemonType'];
     $pokemonImage = $_POST['addPokemonImage'];
-
     $insert = $dataBase->prepare('INSERT INTO `kanto_pokedex` (`pokedex_no`, `name`, `type`, `img_source`) VALUES (?, ?, ?, ?);');
-
     $insert->execute([$pokedexNumber, $pokemonName, $pokemonType, $pokemonImage]);
-
     return $insert;
-
 }
