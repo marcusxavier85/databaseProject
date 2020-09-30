@@ -9,9 +9,11 @@
  */
 function getDatabaseObject(): PDO {
 
-    return $db = new PDO('mysql:host=db;dbname=pokedex', 'root', 'password');
+    $db = new PDO('mysql:host=db;dbname=pokedex', 'root', 'password');
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    return $db;
 }
 
 /**
@@ -30,7 +32,7 @@ function getPokemons(PDO $db): array {
 }
 
 /**
- * Displays data gathered in the table pn the browser
+ * Displays data gathered in the table on the browser
  *
  * @param $pokemons, nested associative array, used as the base to grab the data from
  *
@@ -39,15 +41,16 @@ function getPokemons(PDO $db): array {
 function displayPokemon(array $pokemons): string {
     $result = '';
     foreach ($pokemons as $pokemon) {
-        if (array_key_exists('img_source', $pokemon) && array_key_exists('pokedex_no', $pokemon) && array_key_exists('name', $pokemon) && array_key_exists('type', $pokemon)) {
+        if (array_key_exists('img_source', $pokemon) &&
+            array_key_exists('pokedex_no', $pokemon) &&
+            array_key_exists('name', $pokemon) &&
+            array_key_exists('type', $pokemon)) {
             $result .= '<tr class="rowBox">';
             $result .= '<td><img class="pictureOfPokemon" src=' . $pokemon['img_source'] . ' alt="Picture of "' . $pokemon['name'] . '</td>';
             $result .= '<td>' . $pokemon['pokedex_no'] . '</td>';
             $result .= '<td>' . $pokemon['name'] . '</td>';
             $result .= '<td>' . $pokemon['type'] . '</td>';
             $result .= '</tr>';
-        } else {
-            return 'This is not correct please reconsider';
         }
     }
     return $result;
