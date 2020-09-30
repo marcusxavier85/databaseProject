@@ -13,16 +13,16 @@
 
         <form method="post" action="insertPokemon.php">
             Pokedex Entry #:
-            <input type="number" name="addPokedexNo" required="">
+            <input type="number" name="addPokedexNo" required>
             <br>
             Pokemon Name:
-            <input type="string" name="addPokemonName" required="">
+            <input type="string" name="addPokemonName" required>
             <br>
             Pokemon Type:
-            <input type="string" name="addPokemonType" required="">
+            <input type="string" name="addPokemonType" required>
             <br>
             URL for Pokemon image:
-            <input type="url" name="addPokemonImage" required="">
+            <input type="url" name="addPokemonImage" required>
             <br>
             <input type="submit" value="submit">
         </form>
