@@ -1,48 +1,38 @@
 <?php
 //pokedex Code
 
-$db = new PDO('mysql:host=db;dbname=pokedex', 'root', 'password');
+require('functions.php');
 
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+$db = getDatabaseObject();
 
-$query = $db->prepare('SELECT `id`, `pokedex_no`, `name`, `type` FROM `kanto_pokedex`;');
-
-$query->execute();
-
-$result = $query->fetchAll();
+$pokemons = getPokemons($db);
 
 ?>
 
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+        <link href="normalize.css" type="text/css" rel="stylesheet">
+        <link href="pokedexStyle.css" type="text/css" rel="stylesheet">
     </head>
-    <body>
-    <header class="tile">
-        Pokedex
-    </header>
+    <body class="backgroundImage">
+        <header class="title pokemonFont">
+            Pokedex
+        </header>
 
-    <a href="http://localhost:1234/databaseProject/pokedexForm.php"><button class="addNewPokemonButton">Add new Pokemon</button></a>
+        <a href="pokedexForm.php" class="addNewPokemonButtonBorder"><button class="addNewPokemonButton">Add new Pokemon</button></a>
 
-    <table class="mainTable">
-        <tr>
-            <th>Pokedex Entry</th>
-            <th>Name</th>
-            <th>Type</th>
-        </tr>
-
-    <?php
-        foreach($result as $pokemon) {
-            echo "<tr>";
-            echo "<td>" . $pokemon['pokedex_no'] . "</td>";
-            echo "<td>" . $pokemon['name'] . "</td>";
-            echo "<td>" . $pokemon['type'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-
-    ?>
-
-
+        <table class="mainTable pokemonFont">
+            <tr class="rowBox">
+                <th>Image</th>
+                <th>Pokedex Entry</th>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+                <?php echo displayPokemon($pokemons) ?>
+        </table>
 
     </body>
 </html>

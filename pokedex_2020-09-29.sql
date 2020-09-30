@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: pokedex
-# Generation Time: 2020-09-28 10:57:13 +0000
+# Generation Time: 2020-09-29 09:19:12 +0000
 # ************************************************************
 
 
@@ -30,19 +30,20 @@ CREATE TABLE `kanto_pokedex` (
   `pokedex_no` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
+  `img_source` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `kanto_pokedex` WRITE;
 /*!40000 ALTER TABLE `kanto_pokedex` DISABLE KEYS */;
 
-INSERT INTO `kanto_pokedex` (`id`, `pokedex_no`, `name`, `type`)
+INSERT INTO `kanto_pokedex` (`id`, `pokedex_no`, `name`, `type`, `img_source`)
 VALUES
-	(1,6,'Charizard','Fire Flying'),
-	(4,25,'Pikachu','Electric'),
-	(5,51,'Dugtrio','Ground'),
-	(6,54,'Psyduck','Water'),
-	(7,106,'Hitmonlee','Fighting');
+	(1,6,'Charizard','Fire Flying','charizard.png'),
+	(4,25,'Pikachu','Electric','pikachu.png'),
+	(5,51,'Dugtrio','Ground','dugtrio.png'),
+	(6,54,'Psyduck','Water','psyduck.png'),
+	(7,106,'Hitmonlee','Fighting','hitmonlee.png');
 
 /*!40000 ALTER TABLE `kanto_pokedex` ENABLE KEYS */;
 UNLOCK TABLES;
