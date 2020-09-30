@@ -9,7 +9,7 @@ $pokemons = getPokemons($db);
 
 ?>
 
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@ $pokemons = getPokemons($db);
         <link href="pokedexStyle.css" type="text/css" rel="stylesheet">
     </head>
     <body class="backgroundImage">
-        <header class="title">
+        <header class="title pokemonFont">
             Pokedex
         </header>
 
