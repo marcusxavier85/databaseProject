@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.pokemonFont {
+    font-family: Impact;
+}
+
+.backgroundImage {
+    background-image: url("levelUpPokemon.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.backToPokedexButton {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.formFormat {
+    display: flex;
+    padding: 0 30%;
+    flex-direction: column;
+    justify-content: center;
+}
