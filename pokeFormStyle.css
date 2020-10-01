@@ -3,8 +3,17 @@ body {
     margin: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
 .pokemonFont {
     font-family: Impact;
+    font-size: 1.2rem;
 }
 
 .backgroundImage {
