@@ -69,14 +69,25 @@ function displayPokemon(array $pokemons): string
  */
 function addPokemonToDatabase()
 {
-    $dataBase = getDatabaseObject();
-    $pokedexNumber = $_POST['addPokedexNo'];
-    $pokemonName = $_POST['addPokemonName'];
-    $pokemonType = implode(' ', $_POST['addPokemonType']);
-    $pokemonImage = $_POST['addPokemonImage'];
-    $insert = $dataBase->prepare('INSERT INTO `kanto_pokedex` (`pokedex_no`, `name`, `type`, `img_source`) VALUES (?, ?, ?, ?);');
-    $insert->execute([$pokedexNumber, $pokemonName, $pokemonType, $pokemonImage]);
-    return $insert;
+    if (
+        (isset($_POST['addPokedexNo'])) ||
+        (isset($_POST['addPokemonName'])) ||
+        (isset($_POST['addPokemonType'])) ||
+        (isset($_POST['addPokemonImage']))
+    ) {
+        header("Location: pokedexForm.php");
+    } else {
+        $dataBase = getDatabaseObject();
+        $pokedexNumber = $_POST['addPokedexNo'];
+        $pokemonName = $_POST['addPokemonName'];
+        $pokemonType = implode(' ', $_POST['addPokemonType']);
+        $pokemonImage = $_POST['addPokemonImage'];
+        $insert = $dataBase->prepare('INSERT INTO `kanto_pokedex` (`pokedex_no`, `name`, `type`, `img_source`) VALUES (?, ?, ?, ?);');
+        $updateCheck = $insert->execute([$pokedexNumber, $pokemonName, $pokemonType, $pokemonImage]);
+        if ($updateCheck) {
+            header("Location: pokedexDataBaseProject.php");
+        } else {
+            header("Location: pokedexForm.php");
+        }
+    }
 }
-
-
