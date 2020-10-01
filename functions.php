@@ -70,13 +70,11 @@ function displayPokemon(array $pokemons): string
 function addPokemonToDatabase()
 {
     if (
-        (isset($_POST['addPokedexNo'])) ||
-        (isset($_POST['addPokemonName'])) ||
-        (isset($_POST['addPokemonType'])) ||
+        (isset($_POST['addPokedexNo'])) &&
+        (isset($_POST['addPokemonName'])) &&
+        (isset($_POST['addPokemonType'])) &&
         (isset($_POST['addPokemonImage']))
     ) {
-        header("Location: pokedexForm.php");
-    } else {
         $dataBase = getDatabaseObject();
         $pokedexNumber = $_POST['addPokedexNo'];
         $pokemonName = $_POST['addPokemonName'];
@@ -89,5 +87,7 @@ function addPokemonToDatabase()
         } else {
             header("Location: pokedexForm.php");
         }
+    } else {
+        header("Location: pokedexForm.php");
     }
 }
